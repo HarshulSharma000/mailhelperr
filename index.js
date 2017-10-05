@@ -2,31 +2,36 @@
 const express = require('express');
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
-const {clientID,clientSecret } = require('./config/keys');
+const mongoose = require('mongoose');
+
+const {clientID,clientSecret, mongodbURI } = require('./config/keys');
 
 const app = express();
+
+mongoose.connect(mongodbURI);
+
+require('./routes/authroutes')(app);
 
 passport.use(new GoogleStrategy({
     clientID,
     clientSecret,
-    callbackURL: '/auth/google/callback/'
-    }, accesstoken => {
-    console.log("here is our accessstoken:");
-    console.log(accesstoken);
+    callbackURL: '/auth/google/callback',
+    proxy: true
+    },(accesstoken, refreshtoken,profile,done) => {
+        console.log("here is our accessstoken:");
+        console.log(accesstoken);
+        console.log("here is our profile that we stole...");
+        console.log(profile);
+        done();
     }
 ));
 
-app.get('/auth/google',passport.authenticate('google', {
-    scope: ['profile', 'email']
-  })
-);
-
-app.get('/auth/google/callback',passport.authenticate('google'), 
-(req,res) => res.redirect('/surveys')
-);
-
 app.get('/surveys',(req,res) => res.send({ 
-    Le: "Aunty aa gya..."
+    sot: "mai lgau kya?"
+}));
+
+app.get('/check',(req,res) => res.send({ 
+    Le: "Aunty aa gya... tera omprakash"
 }));
 
 app.get('/',(req,res) => {
