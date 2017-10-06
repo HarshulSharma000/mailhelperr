@@ -31,13 +31,17 @@ app.use(passport.session());
 require('./routes/authroutes')(app);
 require('./routes/apiroutes')(app);
 
-app.get('/surveys',(req,res) => res.send({ 
-    sot: "mai lgau kya?"
-}));
+app.get('/surveys',(req,res) => { 
+    res.send({ 
+        sot: "mai lgau kya?"
+    });
+});
 
-app.get('/check',(req,res) => res.send({ 
-    Le: "Aunty aa gya... tera omprakash"
-}));
+app.get('/check',(req,res) => {
+    res.send({ 
+        Le: "Aunty aa gya... tera omprakash"
+    });    
+});
 
 app.get('/',(req,res) => {
     res.send({ Bolna:"Aunty aau kya?"});
