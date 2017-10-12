@@ -3,6 +3,7 @@ const express = require('express');
 const passport = require('passport');
 const mongoose = require('mongoose');
 const cookiesession = require('cookie-session');
+//const cors = require('cors');
 
 const {mongodbURI, cookieKey } = require('./config/keys');
 require('./models/users');
@@ -15,16 +16,19 @@ mongoose.connect(mongodbURI);//Connecting to remote db
 const users = mongoose.model('users');
 
 //Middlewares
+//app.use(cors({ credentials: true, origin: true }));
 app.use(cookiesession({
     maxAge: 30 * 24 * 60 * 60 * 1000,
-    keys: [cookieKey]
+    keys: [cookieKey],
     // cookie: {  // In case deserialsizeUser fails due to ssl conflict
-    //     secure: false
-    // }
+    //     secure: false,
+    //     httpOnly: false
+    //}
 }));
 
 app.use(passport.initialize());
 app.use(passport.session());
+
 
 
 //Routes

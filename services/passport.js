@@ -26,6 +26,7 @@ passport.use(new GoogleStrategy({
         if(curuser == null){
            curuser = await new users({googleID: profile.id}).save();
         }
+        console.log(curuser);
         done(null,curuser);
     }
 ));
