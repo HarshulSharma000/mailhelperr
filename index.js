@@ -38,12 +38,6 @@ require('./routes/authroutes')(app);
 require('./routes/apiroutes')(app);
 require('./routes/billingroutes')(app);
 
-app.get('/surveys',(req,res) => { 
-    res.send({ 
-        sot: "mai lgau kya?"
-    });
-});
-
 app.get('/check',(req,res) => {
     res.send({ 
         Le: "Aunty aa gya... tera omprakash"
@@ -53,6 +47,17 @@ app.get('/check',(req,res) => {
 app.get('/',(req,res) => {
     res.send({ Bolna:"Aunty aau kya?"});
 });
+
+if(process.env.NODE_ENV === 'production') {
+    //To serve production asserts such as main.js and main.css
+    app.use(express.static('/client/build'));
+    
+    //To serve index.html if no other route is found for the request
+    const path = require('path');
+    app.get('*',(req,res) => {
+        res.sendFile(path.resolve(__dirname,'client','build','index.html'));
+    });
+}
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);

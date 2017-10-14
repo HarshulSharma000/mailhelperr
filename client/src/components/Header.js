@@ -27,7 +27,9 @@ class Header extends Component {
             <nav>
                 <div className="nav-wrapper blue-grey darken-4">
                     <Link to={this.props._id ? '/surveys': '/' } 
-                    className="brand-logo">
+                    className="brand-logo"
+                    style={{margin: '0 10px'}}
+                    >
                         Mail Helperr
                     </Link>
                     <ul className="right hide-on-med-and-down ">
