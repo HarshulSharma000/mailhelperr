@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "axios": "^0.16.2",
+    "eslint": "^4.8.0",
+    "eslint-config-react-app": "^2.0.1",
     "lodash": "^4.17.4",
     "materialize-css": "^0.100.2",
     "react": "^16.0.0",
