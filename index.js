@@ -44,9 +44,9 @@ app.get('/check',(req,res) => {
     });    
 });
 
-app.get('/',(req,res) => {
-    res.send({ Bolna:"Aunty aau kya?"});
-});
+// app.get('/',(req,res) => {
+//     res.send({ Bolna:"Aunty aau kya?"});
+// });
 
 if(process.env.NODE_ENV === 'production') {
     //To serve production asserts such as main.js and main.css
