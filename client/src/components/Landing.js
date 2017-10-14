@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 class Landing extends Component {
     render() {
         return(
-            <div>
-                <p> {this.props.uid} HI</p>
+            <div style={{textAlign: 'center'}}>
+                <p>Hi, Welcome to Mail Helperr collect feedback from your users.</p>
             </div>
         );
     }

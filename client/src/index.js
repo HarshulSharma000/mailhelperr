@@ -17,3 +17,6 @@ ReactDOM.render(//Place below lines in a single line with spaces React.children.
     document.querySelector('#root')
 );
 //registerServiceWorker();
+
+//console.log(process.env.REACT_APP_STRIPE_KEY);
+//console.log(process.env.NODE_ENV);

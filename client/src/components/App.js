@@ -10,7 +10,7 @@ import Dashboard from './Dashboard';
 
 class App extends Component {
   componentWillMount() {
-    //this.props.fetchUser();
+    this.props.fetchUser();
   }
   render() {
     return (

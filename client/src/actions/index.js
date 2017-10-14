@@ -4,9 +4,16 @@ import axios from 'axios';
 
 export const fetchUser = () => async (dispatch) => {
     const user = await axios.get( `/api/current_user/`);
-    console.log(user);
     dispatch({
         type: FETCH_USER,
-        payload: user.data._uid
+        payload: user.data
+    });
+}
+
+export const handleToken = (token) => async dispatch => {
+    const user = await axios.post('/api/stripe', token);
+    dispatch({
+        type: FETCH_USER,
+        payload: user.data
     });
 }

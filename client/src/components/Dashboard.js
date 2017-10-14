@@ -3,8 +3,8 @@ import React,{ Component } from 'react';
 class Dashboard extends Component{
     render() {
         return ( 
-            <div>
-                <p> HI sexy... </p>
+            <div style={{textAlign: 'center'}}>
+                <p> You have successfully logged in.. Ready to collect feedbacks?</p>
             </div>
         ); 
     }

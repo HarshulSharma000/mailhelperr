@@ -1,6 +1,4 @@
-if(process.env.NODE_ENV === 'production'){
-    module.exports = require('./prod');
-}
-else {
-    module.exports = require('./dev');
-}
+export const keys = {
+    serverProxy: "http://localhost:5000",
+    stripePublishableKey: "pk_test_hYGhoveym7ELhc2yItHMnUzZ",
+};

@@ -2,7 +2,8 @@
 const express = require('express');
 const passport = require('passport');
 const mongoose = require('mongoose');
-const cookiesession = require('cookie-session');
+const bodyParser = require('body-parser');
+const cookieSession = require('cookie-session');
 //const cors = require('cors');
 
 const {mongodbURI, cookieKey } = require('./config/keys');
@@ -17,7 +18,8 @@ const users = mongoose.model('users');
 
 //Middlewares
 //app.use(cors({ credentials: true, origin: true }));
-app.use(cookiesession({
+app.use(bodyParser.json());
+app.use(cookieSession({
     maxAge: 30 * 24 * 60 * 60 * 1000,
     keys: [cookieKey],
     // cookie: {  // In case deserialsizeUser fails due to ssl conflict
@@ -34,6 +36,7 @@ app.use(passport.session());
 //Routes
 require('./routes/authroutes')(app);
 require('./routes/apiroutes')(app);
+require('./routes/billingroutes')(app);
 
 app.get('/surveys',(req,res) => { 
     res.send({ 

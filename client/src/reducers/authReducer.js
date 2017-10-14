@@ -1,9 +1,18 @@
 import { FETCH_USER } from '../actions/Types';
 
-export default (state = {uid: null}, action) => {
+const INITIAL_STATE = {
+    _id:null,
+    _v:null
+};
+
+export default (state = INITIAL_STATE, action) => {
     switch(action.type){
         case FETCH_USER: 
-            return {...this.state,uid:action.payload};
+            if(action.payload._id === undefined) {
+                return {...this.state, _id:false};
+            }
+            
+            return {...this.state,...action.payload};
         default: return state;
     }
 }   
