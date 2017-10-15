@@ -9,6 +9,10 @@ import App from './components/App';
 import reducers from './reducers';
 //import registerServiceWorker from './registerServiceWorker';
 
+//Just for Mail testing(Not using passport since its not just about cookies and apis)
+import axios from 'axios';
+window.axios = axios
+
 const store = createStore(reducers,{},applyMiddleware(reduxThunk));
 ReactDOM.render(//Place below lines in a single line with spaces React.children.only expected
     <Provider store={store}> 

@@ -1,4 +1,4 @@
-import { FETCH_USER } from '../actions/Types';
+import { UPDATE_USER } from '../actions/Types';
 
 const INITIAL_STATE = {
     _id:null,
@@ -7,7 +7,7 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
     switch(action.type){
-        case FETCH_USER: 
+        case UPDATE_USER: 
             if(action.payload._id === undefined) {
                 return {...this.state, _id:false};
             }

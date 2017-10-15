@@ -8,6 +8,7 @@ const cookieSession = require('cookie-session');
 
 const {mongodbURI, cookieKey } = require('./config/keys');
 require('./models/users');
+require('./models/surveys');
 require('./services/passport.js');
 
 const app = express(); //Server creation
@@ -37,6 +38,7 @@ app.use(passport.session());
 require('./routes/authroutes')(app);
 require('./routes/apiroutes')(app);
 require('./routes/billingroutes')(app);
+require('./routes/surveyroutes')(app);
 
 app.get('/check',(req,res) => {
     res.send({ 

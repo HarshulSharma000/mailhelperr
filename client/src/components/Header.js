@@ -14,29 +14,29 @@ class Header extends Component {
                 <li><a href={`/auth/google/`}>Log In!(With Google)</a></li>
             );
         else if(id != null)
-            return(
-                <div>
-                    <li> <a > <Payments /> </a></li>
-                    <li> <a href={'/'}> Credits:{credits} </a></li>
-                    <li> <a href={'/auth/logout/'}>Logout</a></li>
-                </div>
-            );
+            return([
+                <li key='1'> <a > <Payments /> </a></li>,
+                <li key='2'> <a href={'/'}> Credits:{credits} </a></li>,
+                <li key='3'> <a href={'/auth/logout/'}>Logout</a></li>
+            ]);
     }
     render() {
         return(
-            <nav>
-                <div className="nav-wrapper blue-grey darken-4">
-                    <Link to={this.props._id ? '/surveys': '/' } 
-                    className="brand-logo"
-                    style={{margin: '0 10px'}}
-                    >
-                        Mail Helperr
-                    </Link>
-                    <ul className="right hide-on-med-and-down ">
-                        {this.rightcontent()}
-                    </ul>
-                </div>
-            </nav>
+            <div>
+                <nav>
+                    <div className="nav-wrapper blue-grey darken-4">
+                        <Link to={this.props._id ? '/surveys': '/' } 
+                        className="brand-logo"
+                        style={{margin: '0 10px'}}
+                        >
+                            Mail Helperr
+                        </Link>
+                        <ul className="right hide-on-med-and-down">
+                            {this.rightcontent()}
+                        </ul>
+                    </div>
+                </nav>
+            </div>
         );
     }
 }
