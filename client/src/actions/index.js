@@ -1,5 +1,4 @@
-import { UPDATE_USER } from './Types';
-import { serverProxy } from '../config/keys';
+import { UPDATE_USER, UPDATE_SURVEY_LIST} from './Types';
 import axios from 'axios';
 
 export const fetchUser = () => async (dispatch) => {
@@ -26,4 +25,16 @@ export const submitSurvey =  (formValues,history) => async dispatch => {
         type: UPDATE_USER,
         payload: response.data
     });
+}
+
+export const fetchSurveyList = () => async dispatch => {
+    const response = await axios.get('/api/surveys');
+    dispatch({ 
+        type: UPDATE_SURVEY_LIST,
+        payload: response.data
+    });
+    //dispatch({ Bitter memories...
+    //    type: JUST_FOR_TESTING,
+    //    payload: {resp:response.data}
+    //});
 }

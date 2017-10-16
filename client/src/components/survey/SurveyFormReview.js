@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 import {connect} from 'react-redux';
-import {withRouter,history} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 
 import * as actions from '../../actions';
 import formFields from './formFields';

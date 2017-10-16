@@ -1,7 +1,6 @@
 import React,{Component} from 'react';
 import {reduxForm,Field,form} from 'redux-form';
 import _ from 'lodash';
-import {Link} from 'react-router-dom';
 
 import SurveyField from './SurveyField';
 import formFields from './formFields';

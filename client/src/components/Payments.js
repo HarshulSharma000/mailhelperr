@@ -3,7 +3,7 @@ import StripeCheckout from 'react-stripe-checkout';
 import {connect} from 'react-redux';
 
 
-import {stripePublishableKey} from '../config/keys';//We could have gone this way also... But its boring
+//import {stripePublishableKey} from '../config/keys'; //We could have gone this way also... But its boring
 import * as actions from '../actions';
 
 class Payments extends Component {
